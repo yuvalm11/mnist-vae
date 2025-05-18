@@ -10,17 +10,12 @@ This project implements a Variational Autoencoder (VAE) for MNIST image generati
 - **Real-time Classification**: Classify generated or uploaded images using a lightweight CNN model
 - **Interactive UI**: User-friendly interface for image generation and classification
 
-### VAE Latent Space and Generation
-![VAE Latent Space and Generation](VAE.png)
-*Visualization of the VAE's latent space and generated samples*
-
 ### How does it work?
 
 Basically, a VAE is a model that learns the latent space of a dataset, in this case the MNIST dataset.
 The latent space is a simpler low-dimensional distribution that can be mapped to the more complex high-dimensional data.
 So for us, the latent space is a 2D space of samples from a normal distribution where each point corresponds to a possible image.
-In the image above, we can see how by "moving" in the latent space we slowly transition from one digit to another, with similar digits like 5 and 3 or 7 and 9 being close to each other.
+In the image below, we can see how by "moving" in the latent space we slowly transition from one digit to another, with similar digits like 5 and 3 or 7 and 9 being close to each other.
 
-
-
-
+![VAE Latent Space and Generation](VAE.png)
+*Visualization of the VAE's latent space and generated samples*
