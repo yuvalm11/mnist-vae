@@ -1,10 +1,11 @@
 # VAE Image Generation + Tiny CNN Classifier
+### Introduction 
 
 This project implements a Variational Autoencoder (VAE) for MNIST image generation and a lightweight CNN classifier for digit recognition. There's also an interactive interface for exploring the latent space.
 
 ![ Watch the video in the repo!](https://github.com/user-attachments/assets/5d13df5e-dede-4478-a123-1fca7adc72ba)
 
-## Features
+### Features
 
 - **VAE-based Image Generation**: Generate new MNIST-style handwritten digits using a trained Variational Autoencoder
 - **Real-time Classification**: Classify generated or uploaded images using a lightweight CNN model
