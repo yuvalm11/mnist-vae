@@ -1,10 +1,23 @@
-# Variational Auto Encoder, CNN Classifiers, Visualizations, Etc.
+# VAE Image Generation + Tiny CNN Classifier
 
-An implementation of a VAE and some CNN classifiers on the MNIST using PyTorch.
-The VAE is trained to generate new MNIST images from a 2 dimensional latent space.
+This project implements a Variational Autoencoder (VAE) for MNIST image generation and a lightweight CNN classifier for digit recognition. The system includes an interactive interface for generating and classifying handwritten digits.
 
-There are some visualizations of the CNN layers as well as interactive UI to play with the VAE latent space and the CNN classifier.
+## Features
 
-#### TODO:
-- Add CNN layers visualization in the UI
-- Color classes in the latent space by classifier certainty
+- **VAE-based Image Generation**: Generate new MNIST-style handwritten digits using a trained Variational Autoencoder
+- **Real-time Classification**: Classify generated or uploaded images using a lightweight CNN model
+- **Interactive UI**: User-friendly interface for image generation and classification
+- **Model Visualization**: Visualize the latent space and reconstruction quality of the VAE
+
+## Visual Demonstrations
+
+### VAE Latent Space and Generation
+![VAE Latent Space and Generation](VAE.png)
+*Visualization of the VAE's latent space and generated samples*
+
+### Interactive User Interface
+![Interactive UI](UI.png)
+*Screenshot of the interactive generation and classification interface*
+
+### Demo Video
+[Watch the demo video](vid.mp4) to see the system in action!
