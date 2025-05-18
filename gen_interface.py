@@ -26,15 +26,18 @@ def latent_to_mnist(latent_point):
     img = img.astype(np.uint8)
     return img, class_idx
 
-n_points = 1000
+n_points = 2000
 x, y = np.random.multivariate_normal([0, 0], [[1, 0], [0, 1]], n_points).T
+x = x.clip(-3, 3)
+y = y.clip(-3, 3)
 
 class_colors = [
     "blue", "red", "pink", "orange", "green", 
-    "purple", "cyan", "brown", "darkgreen", "darkred"
+    "purple", "cyan", "goldenrod", "darkgreen", "darkred"
 ]
 
 point_colors = ["lightgray"] * n_points
+point_size = [10] * n_points
 
 app = Dash(__name__)
 app.layout = html.Div([
@@ -63,6 +66,26 @@ style={
     }
 )
 
+figure = go.Figure()
+figure.add_trace(go.Scatter(
+    x=x,
+    y=y,
+    mode='markers',
+    marker=dict(size=10, color=point_colors),
+    hoverinfo='none',
+    name='Gaussian Points'
+))
+figure.update_layout(
+    showlegend=False,
+    height=758,
+    width=758,
+    plot_bgcolor='#2d2d2d',
+    paper_bgcolor='#2d2d2d',
+    font=dict(color='white'),
+    xaxis=dict(showgrid=False),
+    yaxis=dict(showgrid=False),
+)
+
 @app.callback(
     [Output('gaussian-plot', 'figure'),
      Output('hover-image', 'style'),
@@ -72,26 +95,6 @@ style={
 def update_hover(hover_data):
     global point_colors
 
-    figure = go.Figure()
-    figure.add_trace(go.Scatter(
-        x=x,
-        y=y,
-        mode='markers',
-        marker=dict(size=10, color=point_colors),
-        hoverinfo='none',
-        name='Gaussian Points'
-    ))
-    figure.update_layout(
-        showlegend=False,
-        height=758,
-        width=758,
-        plot_bgcolor='#2d2d2d',
-        paper_bgcolor='#2d2d2d',
-        font=dict(color='white'),
-        xaxis=dict(showgrid=False),
-        yaxis=dict(showgrid=False),
-    )
-
     if hover_data:
         point_index = hover_data['points'][0]['pointIndex']
         latent_point = [x[point_index], y[point_index]]
@@ -99,6 +102,7 @@ def update_hover(hover_data):
         img, class_idx = latent_to_mnist(latent_point)
 
         point_colors[point_index] = class_colors[class_idx]
+        figure.update_traces(marker=dict(color=point_colors))
 
         img_pil = Image.fromarray(img)
         buffer = io.BytesIO()
