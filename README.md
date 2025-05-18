@@ -13,7 +13,3 @@ This project implements a Variational Autoencoder (VAE) for MNIST image generati
 ### VAE Latent Space and Generation
 ![VAE Latent Space and Generation](VAE.png)
 *Visualization of the VAE's latent space and generated samples*
-
-### Interactive User Interface
-![Interactive UI](UI.png)
-*Screenshot of the interactive generation and classification interface*
